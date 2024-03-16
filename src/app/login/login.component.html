@@ -1,0 +1,32 @@
+<div class="w-100 d-flex justify-content-center align-items-center" style="height:90vh; background-color:aqua;">
+    <div class="w-60 border shadow rounded row">
+        <div  class="col">
+            <h4  class="text-center">Login</h4>
+            <!-- email:{{email}}
+            password:{{password}} -->
+            <form action="" #loginForm="ngForm" (ngSubmit)="login()">
+                <div class="mt-3">
+                    Email
+                   <input type="email" [(ngModel)]="email" name="em" required email class="form-control" #userEmail="ngModel">
+                </div>
+                <div class="text-danger" *ngIf="userEmail.invalid && userEmail.touched">
+                    Invalid
+                </div>
+                <div class="mt-3">
+                    Password
+                   <input type="password" [(ngModel)]="password" name="emit" class="form-control" required pattern="[a-zA-Z0-9]*" minlength="3" #userPassword="ngModel">
+                </div>
+                <div class="text-danger" *ngIf="userPassword.invalid && userPassword.touched">
+                    Invalid
+                </div>
+                <button class="btn btn-info mt-3" [disabled]="loginForm.invalid" >Login</button>
+            </form>
+
+        </div>
+        <div class="col">
+            <img src='https://trade.idbicapital.com/NewLogin/images/91374.png' style="height:200px" alt="image" class="img-fluid">
+        </div>
+
+    </div>
+
+</div>

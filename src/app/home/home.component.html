@@ -1,0 +1,32 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-lg-1 bg-dark d-flex flex-column" >
+            <a routerLink="/home" class="mt-3 text-decoration-none text-light fe-border ">Home</a>
+            <a routerLink="/employee" class="mt-3 text-decoration-none text-light fe-border ">Employee</a>
+            <button class="btn btn-link mt-auto" (click)="handleLogout()">Logout</button>
+        </div>
+        <div class="col-lg-8">
+            <div class=" py-4" id="ban1">
+                <h1 class="text-center">Welcome {{adminUsername}}!!</h1>
+                
+            </div>
+            <div class="row my-4">
+                <div class="col-lg-6">
+                    <app-calender></app-calender>
+                </div>
+                <div class="col-lg-6">
+                    <app-chart></app-chart>
+                </div>
+            </div>
+        </div>
+       
+        <div class="col-lg-3">
+            <app-updateadmin (adminChangeEvent)="getUSername($event)"></app-updateadmin>
+            <div class="mt-3 border shadow d-flex align-items-center justify-content-center" style="height: 100px; font-size: 25px;">
+                Employee Count : {{empCount}}
+            </div>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,28 @@
+<div class="border shadow container-fluid py-4">
+    <h3 class="text-center">Update Admin</h3>
+    <div class="text-center" *ngIf="!profileStatus">
+        <a class="text-decoration" style="cursor:pointer;" (click)="adminProfileStatus()">CLick to Update Admin</a>
+    </div>
+    <div class="p-3" *ngIf="profileStatus">
+        <form (ngSubmit)="handleUpdateAdmin()">
+            <div class="mb-3 d-flex justify-content-center">
+                <label for="profileimg">
+                    <input type="file" (change)="getFile($event)" name="profileimg" id="profileimg" style="display: none;">
+                    <img [src]="profilePicture" alt="profilePicture" style="width: 100px; border-radius: 50%; height: 100px;">
+                </label>
+            </div>
+            <div class="mb-3">
+                <label for="exampleUsername" class="form-label">Username</label>
+                <input type="text" name="username" [(ngModel)]="adminData.username" class="form-control" id="exampleUsername">
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="text" name="Password" [(ngModel)]="adminData.password"  class="form-control" id="exampleInputPassword1">
+            </div>
+            <div class="d-flex justify-content-evenly">
+                <button type="reset" (click)="onCancel()" class="btn btn-warning">Cancel</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
